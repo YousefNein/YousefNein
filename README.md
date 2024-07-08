@@ -7,6 +7,8 @@
 
 - 🌱 I’m currently learning **Threat Hunting**
 
+- 👯 I’m looking to collaborate on [wazuh-system-integrations](https://github.com/YousefNein/wazuh-system-integrations)
+
 - 🤝 I’m looking for help with [forensic-command-toolkit](https://github.com/YousefNein/forensic-command-toolkit)
 
 - 💬 Ask me about **SIEM Rulesets, Regex, OSINT, and API Scripting**
