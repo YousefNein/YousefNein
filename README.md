@@ -1,7 +1,7 @@
 <h1 align="center">Hello there 👋, I'm Yousef Helmy</h1>
 <h3 align="center">A Cybersecurity Engineer from Egypt that likes everything Cyber. I'm in the process of being a professional Threat Hunter and Cybersecurity Consultant down the road. I keep an eye up for the latest tech news, I like learning new topics that can help me in the field, and I'm one of the few who likes regex. Feel free to chat with my about the latest JJK chapter and anything cyber. ⚡</h3>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=yousefnein" alt="yousefnein" /></a> </p>
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=yousefnein&theme=radical" alt="yousefnein" /></a> </p>
 
 - 🔭 I’m currently working on [OSINT-Hub](https://github.com/YousefNein/OSINT-Hub)
 
