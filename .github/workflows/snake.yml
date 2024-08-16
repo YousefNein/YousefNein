@@ -1,32 +1,8 @@
-name: Generate Snake
-
-on:
-  schedule: # Runs every day at midnight
-    - cron: "0 0 * * *"
-  workflow_dispatch: # Allows manual triggering
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # Step 1: Pull the repository containing the action
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      # Step 2: Run the snake game generator
-      - name: Generate Snake Game
-        uses: Platane/snk@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
-
-      # Step 3: Commit and push the results back to your repository
-      - name: Commit and Push
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Generate Snake Game" || echo "Nothing to commit"
-          git push
+- name: generate-snake-game-from-github-contribution-grid
+  uses: Platane/snk@v3.0.0
+  with:
+    github_user_name: YousefNein
+    outputs: |
+      dark.svg?palette=github-dark&color_snake=blue
+      light.svg?color_snake=#7845ab
+      ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
