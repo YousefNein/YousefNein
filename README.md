@@ -24,11 +24,3 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=yousefnein&show_icons=true&locale=en" alt="yousefnein" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=yousefnein&" alt="yousefnein" /></p>
-
-### 🐍 Snake Game
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="dist/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="dist/github-snake.svg" />
-  <img alt="github-snake" src="dist/github-snake.svg" />
-</picture>
