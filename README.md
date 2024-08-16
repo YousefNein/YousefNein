@@ -24,3 +24,9 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=yousefnein&show_icons=true&locale=en" alt="yousefnein" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=yousefnein&" alt="yousefnein" /></p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vhm1ng/vhm1ng/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vhm1ng/vhm1ng/output/github-contribution-grid-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/vhm1ng/vhm1ng/output/github-contribution-grid-snake.svg">
+</picture>
