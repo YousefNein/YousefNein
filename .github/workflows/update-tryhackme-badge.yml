@@ -1,22 +1,37 @@
-name: Update TryHackMe Badge
+name: Update Badge
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight
-  workflow_dispatch: # Allows manual triggering
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   update-badge:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      
+    - name: Fetch Badge Data
+      id: fetch-badge
+      run: |
+        curl -s https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1494397 > assets/badge.json
+        
+    - name: Extract Badge Image URL
+      id: extract-url
+      run: |
+        IMAGE_URL=$(jq -r '.badgeUrl' assets/badge.json)
+        echo "badge_url=${IMAGE_URL}" >> $GITHUB_ENV
 
-    - name: TryHackMe Badge Action Workflow
-      uses: DhanushNehru/tryhackme-badge-action-workflow@v1.0
-      with:
-        image_path: './assets/tryhackme-badge.png' # Path for storing badge
-        username: 'YousefNein'       # Your TryHackMe username
-        user_id: '1494397'         # Your TryHackMe User ID
-        GITHUB_TOKEN: ${{ secrets.THM_GITHUB_TOKEN }} # GitHub Token
+    - name: Download Badge Image
+      run: |
+        curl -s "${{ env.badge_url }}" -o assets/tryhackme-badge.png
+
+    - name: Commit and Push Badge Image
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add assets/tryhackme-badge.png
+        git commit -m "Update badge image"
+        git push
