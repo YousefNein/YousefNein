@@ -19,4 +19,4 @@ jobs:
         image_path: './assets/tryhackme-badge.png' # Path for storing badge
         username: 'YousefNein'       # Your TryHackMe username
         user_id: '1494397'         # Your TryHackMe User ID
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Token
+        GITHUB_TOKEN: ${{ secrets.THM_GITHUB_TOKEN }} # GitHub Token
