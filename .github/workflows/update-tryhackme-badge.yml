@@ -1,37 +1,35 @@
-name: Update Badge
+name: Update TryHackMe Badge
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs daily at midnight UTC
-  workflow_dispatch: # Allows manual triggering of the workflow
+    - cron: '0 0 * * *'  # Runs every day at midnight UTC
+  workflow_dispatch:  # Allows manual triggering from the GitHub UI
 
 jobs:
   update-badge:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-      
-    - name: Fetch Badge Data
-      id: fetch-badge
-      run: |
-        curl -s https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1494397 > assets/badge.json
-        
-    - name: Extract Badge Image URL
-      id: extract-url
-      run: |
-        IMAGE_URL=$(jq -r '.badgeUrl' assets/badge.json)
-        echo "badge_url=${IMAGE_URL}" >> $GITHUB_ENV
+      # Checkout the repository to access the files
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Download Badge Image
-      run: |
-        curl -s "${{ env.badge_url }}" -o assets/tryhackme-badge.png
+      # Download the badge image
+      - name: Download TryHackMe badge
+        run: |
+          curl -o badge.png "https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1494397" > badge.png
+          
+      # Move the badge image to the assets directory
+      - name: Move badge to assets directory
+        run: |
+          mkdir -p assets
+          mv badge.png assets/tryhackme-badge.png
 
-    - name: Commit and Push Badge Image
-      run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add assets/tryhackme-badge.png
-        git commit -m "Update badge image"
-        git push
+      # Commit the updated badge to the repository
+      - name: Commit and push badge image
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: 'GitHub Actions'
+          author_email: 'actions@github.com'
+          message: 'Update TryHackMe badge'
+          add: 'assets/tryhackme-badge.png'
