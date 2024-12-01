@@ -33,3 +33,4 @@ jobs:
           author_email: 'actions@github.com'
           message: 'Update TryHackMe badge'
           add: 'assets/tryhackme-badge.png'
+          token: ${{ secrets.GH_TOKEN }}
