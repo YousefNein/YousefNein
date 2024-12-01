@@ -6,6 +6,9 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write  # Allow GitHub Actions to push changes
+
 jobs:
   tryhackme-badge-update:
     name: Update this repo's TryHackMe badge with the latest image badge
