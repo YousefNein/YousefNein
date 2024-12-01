@@ -16,11 +16,11 @@ jobs:
 
     - name: Download badge image
       run: |
-        curl -L -o ./assets/badge.png "https://tryhackme-badges.s3.amazonaws.com/NotYousefNein.png"
+        curl -L -o badge.png "https://tryhackme-badges.s3.amazonaws.com/NotYousefNein.png"
     
     - name: Commit and push the badge image
       run: |
-        git add ./assets/badge.png
+        git add badge.png
         git commit -m "Add new badge image"
         git push
       env:
