@@ -1,36 +1,17 @@
-name: Update TryHackMe Badge
+name: TryHackMe Update Badge
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs every day at midnight UTC
-  workflow_dispatch:  # Allows manual triggering from the GitHub UI
-
+    # Make it run every 24 hour
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 jobs:
-  update-badge:
+  tryhackme-badge-update:
+    name: Update this repo's tryhackme badge with the latest tryhackme image badge
     runs-on: ubuntu-latest
-
     steps:
-      # Checkout the repository to access the files
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      # Download the badge image
-      - name: Download TryHackMe badge
-        run: |
-          curl -o badge.png "https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1494397" > badge.png
-          
-      # Move the badge image to the assets directory
-      - name: Move badge to assets directory
-        run: |
-          mkdir -p assets
-          mv badge.png assets/tryhackme-badge.png
-
-      # Commit the updated badge to the repository
-      - name: Commit and push badge image
-        uses: EndBug/add-and-commit@v7
+      - uses: actions/checkout@v2
+      - uses: p4p1/tryhackme-badge-workflow@main
         with:
-          author_name: 'GitHub Actions'
-          author_email: 'actions@github.com'
-          message: 'Update TryHackMe badge'
-          add: 'assets/tryhackme-badge.png'
-          token: ${{ secrets.GH_TOKEN }}
+          username: "YousefNein"
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
