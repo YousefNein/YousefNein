@@ -9,9 +9,19 @@ jobs:
   tryhackme-badge-update:
     name: Update this repo's tryhackme badge with the latest tryhackme image badge
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v2
-      - uses: p4p1/tryhackme-badge-workflow@main
-        with:
-          username: "YousefNein"
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Download badge image
+      run: |
+        curl -L -o ./assets/badge.png "https://tryhackme-badges.s3.amazonaws.com/NotYousefNein.png"
+    
+    - name: Commit and push the badge image
+      run: |
+        git add ./assets/badge.png
+        git commit -m "Add new badge image"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
