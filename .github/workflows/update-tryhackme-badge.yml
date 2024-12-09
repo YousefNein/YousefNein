@@ -29,6 +29,7 @@ jobs:
     
     - name: Commit and push the badge image
       run: |
+        git pull
         git add badge.png
         git commit -m "Add new badge image"
         git push
