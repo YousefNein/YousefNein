@@ -31,7 +31,8 @@ jobs:
       run: |
         ls
         git pull
-        git add badge.png
+        git add .
+        git status
         git commit -m "Add new badge image"
         git push
       env:
