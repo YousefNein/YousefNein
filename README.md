@@ -9,7 +9,7 @@ yousef@github:~$ echo $CURRENT_STUDIES
 ELK Stack
 
 yousef@github:~$ echo $CURRENT_PROJECTS
-🚧 OSINT-Hub | 🔧 wazuh-system-integrations | 🔍 forensic-command-toolkit
+elk_toolkit (Will be viewed in the future)
 
 yousef@github:~$ echo $KNOWLEDGE
 🔐 SIEM Rulesets | 🔍 OSINT | 🎯 Regex | 📩 API Scripting | ELK Stack
